@@ -22,22 +22,14 @@
     transition: all 1s;
 }
 
-.check-box {
-    background: pink;
-}
-
 .remove-box:hover{
     background-color: rgb(254, 253, 252);
     color: red;
     cursor: pointer;
 }
 
-.check-box:hover{
-    color: rgb(242, 13, 128);
+.check-box{
     background-color: white;
     cursor: pointer;
-}
-
-#check-icon{
-    display: none;
+    color: red;
 }

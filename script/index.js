@@ -12,7 +12,7 @@ button.addEventListener("click", function(){
         const li = document.createElement("li");
         const divContainer = document.createElement("div");
         divContainer.classList.add("check-box");
-        divContainer.innerHTML = `<i id="check-icon" class="fa-solid fa-check"></i>`;
+        // divContainer.innerHTML = `<i class="fa-solid fa-check"></i>`;
         li.appendChild(divContainer);
 
 
@@ -40,10 +40,16 @@ button.addEventListener("click", function(){
 }, false)
 
 const listBox = document.querySelectorAll(".ul-box");
-
+const icon = document.createElement("span");
+icon.innerHTML = `<i class="fa-solid fa-check"></i>`;
 for(const item of listBox){
     item.addEventListener("click", function(e){
-        const parent = e.target.parentNode;
-        parent.remove();
+        
+        if(e.target.innerText === "x"){
+            const parent = e.target.parentNode;
+            parent.remove();
+        }else if(e.target.className === "check-box"){
+           e.target.appendChild(icon);
+        }
     })
 }
