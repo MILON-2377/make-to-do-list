@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>make a to do list </title>
+    <title>make to do list</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />-
+
+    <!-- tailwind and daisy ui list -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- csslink -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-    
+<body class="bg-slate-700 p-12">
+    <header>
+
+    </header>
+    <main class="">
+        <section class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg h-[400px] w-[650px] p-10 flex justify-center mx-auto">
+           <div class="">
+                <div class="flex gap-6">
+                    <input id="input-field" class="w-2/3 h-16 pl-6 text-xl font-[400] outline-indigo-50 rounded-3xl" type="text" placeholder="type your text">
+                        <button id="button" class="text-purple-800 duration-700 font-bold text-2xl bg-slate-100 px-9 rounded-lg hover:text-white hover:bg-green-500">Add</button>
+                </div>
+                <ul class="mt-6 ml-6 text-white text-xl">
+                    <li class="flex gap-5  hover:cursor-pointer"><p class="h-10 w-10 rounded-full bg-fuchsia-800 text-center text-3xl hover:text-white">
+                        <i class="fa-solid fa-check"></i>
+                    </p>
+                    <span id="display-text">imtem</span>
+                    <p class="h-10 w-10 hover:bg-white ml-80 hover:cursor-pointer rounded-full text-black text-3xl text-center">x</p>
+                </li>
+           </div>
+        </section>
+    </main>
+
+    <script src="script/index.js"></script>
 </body>
 </html>
