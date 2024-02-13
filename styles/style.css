@@ -1,7 +1,43 @@
 
-.li::before {
-  content: "";
-  width: 100px;
-  height: 100px;
-  background-color: white;
+#list-container{
+    margin-top: 40px;
+}
+
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.remove-box, .check-box{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    color: white;
+    transition: all 1s;
+}
+
+.check-box {
+    background: pink;
+}
+
+.remove-box:hover{
+    background-color: rgb(254, 253, 252);
+    color: red;
+    cursor: pointer;
+}
+
+.check-box:hover{
+    color: rgb(242, 13, 128);
+    background-color: white;
+    cursor: pointer;
+}
+
+#check-icon{
+    display: none;
 }
