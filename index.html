@@ -11,25 +11,28 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.0/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- icons link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- csslink -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body class="bg-slate-700 p-12">
-    <header>
+<body class="bg-slate-700 h-screen w-screen p-12">
 
-    </header>
-    <main class="">
-        <section class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg h-[400px] w-4/5 p-10 flex justify-center mx-auto">
-                <div class="grid grid-cols-2">
-                    <input id="input-field" class=" h-16 pl-5 text-xl font-[400] outline-indigo-50 rounded-3xl" type="text" placeholder="type your text">
-                        <button id="button" class="bg-slate-500">Add</button>
-                </div>
-                <ul id="list-container" class="ul-box">
-                   
-                </ul>
-        </section>
-    </main>
+    <section class="lg:w-[50%] flex flex-col gap-4 p-4 bg-gradient-to-l rounded-xl mx-auto from-pink-600 to-purple-500">
+        <div class="w-full flex gap-5">
+            <input id="input-container" class="input w-[80%]" placeholder="Type your list headline" type="text">
+            <button onclick="addListItem()" class="btn w-[30%] btn-secondary bg-gradient-to-r from-blue-400 to-purple-400 ">Add</button>
+        </div>
+        <div id="list-container" class=" flex flex-col w-full h-full gap-4 items-center text-xl text-white capitalize">
+           
+        </div>
+    </section>
 
-    <script src="script/index.js"></script>
+    <audio src="audio/selected22.mp3"></audio>
+
+    <!-- <img src="images/checked.png" alt=""> -->
+    
+    <script src="script/todo.js"></script>
 </body>
 </html>
