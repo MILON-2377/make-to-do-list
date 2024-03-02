@@ -10,6 +10,9 @@ function takeInputValue(idName){
     return inputInnerValue;
 }
 
+let num = 0;
+const listContainerArr = [];
+
 function displayListItem(idName){
     const inputValue = takeInputValue("input-container");
     const displayElement = document.getElementById(idName);
@@ -20,51 +23,66 @@ function displayListItem(idName){
         // audio.play();
         alert("Please type somthing before add");
     }else{
-    const div = document.createElement("div");
+    const div = makeElement("div");
     div.setAttribute("id", "div-list-container")
     div.classList.add("div-list-container")
 
-    const button1 = document.createElement("button");
+    const button1 = makeElement("button");
     button1.setAttribute("id", "button1");
 
-    const span = document.createElement("span");
-    span.innerText = 0;
-    span.setAttribute("id", "span-container")
+    const span = makeElement("span");
+    const value = num + 1;
+    span.innerText = `${value}.`;
+    num = value;
 
-    const button2 = document.createElement("button");
+    const button2 = makeElement("button");
     button2.setAttribute("id", "button2")
     
 
-    const p = document.createElement("p");
+    const p = makeElement("p");
     p.innerText = inputValue;
 
     div.appendChild(button1);
+   
     div.appendChild(span)
     div.appendChild(p); 
     div.appendChild(button2); 
     displayElement.appendChild(div); 
 
     document.getElementById("input-container").value = "";
+    saveListContainerDataa();
 
     }
+    console.log(listContainerArr);
 }
 
+
+function makeElement(elementName){
+    const makeElentName = document.createElement(elementName);
+
+    return makeElentName;
+}
 
 const inputContainer = document.getElementById("input-container");
 inputContainer.addEventListener("keyup", (e) => {
     if(e.key === "Enter"){
         addListItem();
-        increasingNumber("span-container");
     }
 })
 
-
+const button2Container = document.getElementById("list-container");
 function toRemoveElement(){
-    const button2Container = document.getElementById("list-container");
 
     button2Container.addEventListener("click", (e) => {
         if(e.target.id === "button2"){
-            e.target.parentNode.remove()
+            e.target.parentNode.remove();
+            for(const item of listContainerArr){
+                if(listContainerArr.includes(e.target.parentNode)){
+                    const index = listContainerArr.indexOf(item);
+                    listContainerArr.splice(index, 1);
+                    
+                }
+            }
         }else if(e.target.id === "button1"){
 
             const audio1 = new Audio();
@@ -77,6 +95,7 @@ function toRemoveElement(){
             img.setAttribute("id", "image-container")
             e.target.appendChild(img);
             e.target.style.border = "none"
+            
         }else if(e.target.id === "image-container"){
 
             const audio = new Audio();
@@ -85,27 +104,23 @@ function toRemoveElement(){
 
             e.target.classList.add("hidden");
             e.target.parentNode.style.border = "2px solid white"
+            
         }
+
+        saveListContainerDataa();
     })  
     
 }
 
 toRemoveElement()
 
-
-function increasingNumber(idName){
-    const spanContainer = document.getElementById(idName);
-
-    const spanInnerText = spanContainer.innerText;
-    const innerValue = parseInt(spanInnerText);
-
-    const value = innerValue + 1;
-    spanContainer.innerText = value;
-
-    // span.innerText = 1;
-    // const span1 = document.createElement("span");
-    // span1.innerText = ".";
-    // span.appendChild(span1)
-
+function saveListContainerDataa(){
+    localStorage.setItem("data", button2Container.innerHTML);
 }
 
+function getListContainerData(){
+    const items =  localStorage.getItem("data");
+    button2Container.innerHTML = items;
+}
+
+getListContainerData();

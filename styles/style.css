@@ -48,3 +48,8 @@ li {
 .set-border{
     border: 2px solid white;
 }
+
+.white{
+    color: white;
+    font-size: 18px;
+}
